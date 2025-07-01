@@ -1,34 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import './App.css'
+import cartIcon from './assets/cartIcon.png'
+import DropdownIcon from './assets/dropdownIcon.png'
+import logo from './assets/logo.png'
+import Home from './Home.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="app-container">
+        
+        <div className="content-container">
+          <nav className="horizontal-nav">
+            <Link to="/" className="nav-button">
+            <img src={logo} alt="Logo" className="logo-icon" />
+            </Link>
+            <Link to="/" className="nav-button">
+            Shop Products <img src={DropdownIcon} alt="Dropdown Icon" className="nav-icon" />
+            </Link>
+            <Link to="/" className="nav-button">
+            Deals <img src={DropdownIcon} alt="Dropdown Icon" className="nav-icon" />
+            </Link>
+            <Link to="/cart" className="nav-button">
+            Cart <img src={cartIcon} alt="Cart Icon" className="nav-icon" />
+            </Link>
+          </nav>
+          
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </main>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Router>
   )
 }
 

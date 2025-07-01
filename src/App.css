@@ -1,3 +1,9 @@
+@import url('https://fonts.google.com/specimen/Inknut+Antiqua?preview.text=hello');
+
+:root {
+  --navbar-height: calc(6vh + 4rem); /* Logo height + padding */
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,38 +11,112 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo-icon{
+  height: 6vh;
+}
+
+.content-container{
+  display: flex;
+  flex: 1;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  margin-top: var(--navbar-height); /* Reserve space for the fixed navbar */
+}
+
+.horizontal-nav{
+position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  width: 180px;
+  background-color: #005b9a;
+  min-width: 100vw;
+  width: 100%;
+  z-index: 100;
+  font-family: 'Inknut Antiqua ';
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  padding: 1rem;
+  color: #aec5eb;
+  font-size: larger;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+
+.nav-button:hover {
+  border-bottom: 2px solid black;
+}
+
+.nav-icon {
+  margin-top: 0.5rem;
+  padding: 1vw;
+  max-height: 4vh;
+  max-width: auto;
+}
+
+.main-content {
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Responsive navbar height adjustments */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: calc(5vh + 3rem); /* Smaller on mobile */
   }
-  to {
-    transform: rotate(360deg);
+  
+  .nav-button {
+    padding: 0.8rem;
+    font-size: medium;
+  }
+  
+  .logo-icon {
+    height: 5vh;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: calc(4vh + 2.5rem); /* Even smaller on very small screens */
+  }
+  
+  .nav-button {
+    padding: 0.6rem;
+    font-size: small;
+  }
+  
+  .logo-icon {
+    height: 4vh;
+  }
+  
+  .nav-icon {
+    max-height: 3vh;
+    padding: 0.5vw;
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
