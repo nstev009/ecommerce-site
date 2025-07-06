@@ -64,7 +64,7 @@ position: fixed;
   font-size: larger;
   text-decoration: none;
   border-bottom: 2px solid transparent;
-  transition: border-bottom 0.3s ease;
+  transition: ease-in-out 0.3s;
 }
 
 .nav-button:hover {
@@ -118,5 +118,66 @@ position: fixed;
     max-height: 3vh;
     padding: 0.5vw;
   }
+}
+
+.nav-dropdown {
+  position: relative;
+  display: block;
+  width: 25%;
+}
+
+.dropdown-trigger {
+  display: flex;
+  transition: ease-in-out 0.3s;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  color: #aec5eb;
+  font-size: larger;
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  
+  font-family: 'Inknut Antiqua';
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0; 
+
+  
+}
+.dropdown-trigger:hover {
+  border-bottom: 2px solid black;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #145C9E;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+
+.dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #145C9E;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  color: #145C9E;
+  background-color: #ACD7EC;
+  transition: ease-in-out 0.3s;
 }
 

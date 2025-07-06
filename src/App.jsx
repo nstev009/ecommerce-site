@@ -1,34 +1,81 @@
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { useState } from 'react'
 import './App.css'
 import cartIcon from './assets/cartIcon.png'
 import DropdownIcon from './assets/dropdownIcon.png'
 import logo from './assets/logo.png'
 import Home from './Home.jsx'
+import Headphones from './Headphones.jsx'
+import Keyboards from './Keyboards.jsx' 
+import Laptops from './Laptops.jsx'
+import Mice from './Mice.jsx'
+import Monitors from './Monitors.jsx'
+import TVs from './TVs.jsx'
+import Breadcrumbs from './Breadcrumbs.jsx'
 
 function App() {
+  const [showProductsDropdown, setShowProductsDropdown] = useState(false)
+  const [showDealsDropdown, setShowDealsDropdown] = useState(false)
+
   return (
     <Router>
       <div className="app-container">
-        
         <div className="content-container">
           <nav className="horizontal-nav">
             <Link to="/" className="nav-button">
             <img src={logo} alt="Logo" className="logo-icon" />
             </Link>
-            <Link to="/" className="nav-button">
-            Shop Products <img src={DropdownIcon} alt="Dropdown Icon" className="nav-icon" />
-            </Link>
-            <Link to="/" className="nav-button">
-            Deals <img src={DropdownIcon} alt="Dropdown Icon" className="nav-icon" />
-            </Link>
+            
+            <div 
+              className="nav-dropdown"
+              onMouseEnter={() => setShowProductsDropdown(true)}
+              onMouseLeave={() => setShowProductsDropdown(false)}
+            >
+              <button className="dropdown-trigger">
+                Shop Products <img src={DropdownIcon} alt="Dropdown Icon" className="nav-icon" />
+              </button>
+              {showProductsDropdown && (
+                <div className="dropdown-menu">
+                  <Link to="/Headphones" className="dropdown-item">Headphones</Link>
+                  <Link to="/Keyboards" className="dropdown-item">Keyboards</Link>
+                  <Link to="/Laptops" className="dropdown-item">Laptops</Link>
+                  <Link to="/Mice" className="dropdown-item">Mice</Link>
+                  <Link to="/Monitors" className="dropdown-item">Monitors</Link>
+                  <Link to="/TVs" className="dropdown-item">TVs</Link>
+                </div>
+              )}
+            </div>
+
+            <div 
+              className="nav-dropdown"
+              onMouseEnter={() => setShowDealsDropdown(true)}
+              onMouseLeave={() => setShowDealsDropdown(false)}
+            >
+              <button className="dropdown-trigger">
+                Deals <img src={DropdownIcon} alt="Dropdown Icon" className="nav-icon" />
+              </button>
+              {showDealsDropdown && (
+                <div className="dropdown-menu">
+                  <Link to="/daily-deals" className="dropdown-item">Daily Deals</Link>
+                  <Link to="/clearance" className="dropdown-item">Clearance</Link>
+                </div>
+              )}
+            </div>
+
             <Link to="/cart" className="nav-button">
             Cart <img src={cartIcon} alt="Cart Icon" className="nav-icon" />
             </Link>
           </nav>
-          
-          <main className="main-content">
+          <Breadcrumbs /> 
+            <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/Headphones" element={<Headphones />} />
+              <Route path="/Keyboards" element={<Keyboards />} />
+              <Route path="/Laptops" element={<Laptops />} />
+              <Route path="/Mice" element={<Mice />} /> 
+              <Route path="/Monitors" element={<Monitors />} />
+              <Route path="/TVs" element={<TVs />} />
             </Routes>
           </main>
         </div>
