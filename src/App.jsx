@@ -14,6 +14,7 @@ import TVs from './TVs.jsx'
 import Breadcrumbs from './Breadcrumbs.jsx'
 import DailyDeals from './DailyDeals.jsx'
 import Clearance from './Clearance.jsx'
+import Cart from './Cart.jsx'
 
 function App() {
   const [showProductsDropdown, setShowProductsDropdown] = useState(false)
@@ -80,6 +81,7 @@ function App() {
               <Route path="/TVs" element={<TVs />} />
               <Route path="/DailyDeals" element={<DailyDeals />} />
               <Route path="/clearance" element={<Clearance />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           </main>
         </div>
