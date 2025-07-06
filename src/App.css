@@ -1,4 +1,3 @@
-@import url('https://fonts.google.com/specimen/Inknut+Antiqua?preview.text=hello');
 
 :root {
   --navbar-height: calc(6vh + 4rem); /* Logo height + padding */
@@ -28,8 +27,13 @@
 
 .logo-icon{
   height: 6vh;
+  border-radius: 1rem;
 }
-
+.logo-icon:hover{
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px #ACD7EC) drop-shadow(0 0 20px #145C9E);
+  transition: filter 0.3s;
+}
 .content-container{
   display: flex;
   flex: 1;
@@ -40,7 +44,7 @@
 }
 
 .horizontal-nav{
-position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -50,10 +54,10 @@ position: fixed;
   min-width: 100vw;
   width: 100%;
   z-index: 100;
-  font-family: 'Inknut Antiqua ';
+  
 }
 
-.nav-button {
+.nav-button, .dropdown-trigger {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,7 +65,10 @@ position: fixed;
   width: 25%;
   padding: 1rem;
   color: #aec5eb;
-  font-size: larger;
+  font-family: "Libertinus Math", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.8rem;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: ease-in-out 0.3s;
@@ -82,8 +89,8 @@ position: fixed;
   width: 100%;
   padding: 2rem;
   box-sizing: border-box;
+  overflow-x: auto;
 }
-
 /* Responsive navbar height adjustments */
 @media (max-width: 768px) {
   :root {
@@ -135,12 +142,9 @@ position: fixed;
   width: 100%;
   padding: 1rem;
   color: #aec5eb;
-  font-size: larger;
   text-decoration: none;
   background: none;
   cursor: pointer;
-  
-  font-family: 'Inknut Antiqua';
   border: none;
   border-bottom: 2px solid transparent;
   border-radius: 0; 

@@ -12,6 +12,8 @@ import Mice from './Mice.jsx'
 import Monitors from './Monitors.jsx'
 import TVs from './TVs.jsx'
 import Breadcrumbs from './Breadcrumbs.jsx'
+import DailyDeals from './DailyDeals.jsx'
+import Clearance from './Clearance.jsx'
 
 function App() {
   const [showProductsDropdown, setShowProductsDropdown] = useState(false)
@@ -56,8 +58,8 @@ function App() {
               </button>
               {showDealsDropdown && (
                 <div className="dropdown-menu">
-                  <Link to="/daily-deals" className="dropdown-item">Daily Deals</Link>
-                  <Link to="/clearance" className="dropdown-item">Clearance</Link>
+                  <Link to="/DailyDeals" className="dropdown-item">Daily Deals</Link>
+                  <Link to="/Clearance" className="dropdown-item">Clearance</Link>
                 </div>
               )}
             </div>
@@ -76,6 +78,8 @@ function App() {
               <Route path="/Mice" element={<Mice />} /> 
               <Route path="/Monitors" element={<Monitors />} />
               <Route path="/TVs" element={<TVs />} />
+              <Route path="/DailyDeals" element={<DailyDeals />} />
+              <Route path="/clearance" element={<Clearance />} />
             </Routes>
           </main>
         </div>

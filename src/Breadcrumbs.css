@@ -1,35 +1,32 @@
+
+
 .breadcrumbs {
-  margin: 1rem 0 1.5rem 2rem;
-  font-size: 1rem;
-  color: #ACD7EC;
-  letter-spacing: 0.03em;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  font-family: 'Inknut Antiqua', serif;
-  white-space: nowrap;
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  z-index: 200;
+  background: transparent;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  font-size: 0.9rem;
+  pointer-events: auto;
 
 }
 
 .breadcrumb-link {
   color: #ACD7EC;
-  text-decoration: underline;
   cursor: pointer;
   transition: color 0.2s, text-shadow 0.2s;
 }
 
 .breadcrumb-link:hover {
   color: #D6EDFF;
-  text-shadow: 0 0 8px #D6EDFF, 0 0 4px #ACD7EC;
 }
 
 .breadcrumb-current {
-  color: #D6EDFF;
-  font-weight: bold;
+  color: #ACD7EC;
 }
 
 .breadcrumb-separator {
   color: #ACD7EC;
-  font-weight: bold;
-  user-select: none;
 }

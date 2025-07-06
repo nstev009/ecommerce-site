@@ -1,4 +1,5 @@
 import './Home.css'
+import './index.css'
 import all_products from './assets/products.js'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
