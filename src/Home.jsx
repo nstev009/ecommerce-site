@@ -44,7 +44,7 @@ function Home() {
           const categoryProduct = all_products.find(product => product.category === category);
           return (
             <div key={category} className='product-card'>
-              <Link to={`/${category}`} className="dropdown-item">
+              <Link to={`/${category}`} className="category-link">
                 <img src={categoryProduct.image} alt={category} className='product-image' />
                 <h3>{category}</h3>
               </Link>
