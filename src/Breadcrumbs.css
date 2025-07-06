@@ -1,0 +1,32 @@
+
+
+.breadcrumbs {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  z-index: 200;
+  background: transparent;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  font-size: 0.9rem;
+  pointer-events: auto;
+
+}
+
+.breadcrumb-link {
+  color: #ACD7EC;
+  cursor: pointer;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.breadcrumb-link:hover {
+  color: #D6EDFF;
+}
+
+.breadcrumb-current {
+  color: #ACD7EC;
+}
+
+.breadcrumb-separator {
+  color: #ACD7EC;
+}
