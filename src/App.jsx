@@ -1,20 +1,25 @@
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { useState } from 'react'
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import './App.css'
 import cartIcon from './assets/cartIcon.png'
 import DropdownIcon from './assets/dropdownIcon.png'
 import logo from './assets/logo.png'
-import Home from './Home.jsx'
+import { BreadcrumbProvider } from './BreadcrumbContext.jsx'
+import Breadcrumbs from './Breadcrumbs.jsx'
+import Cart from './Cart.jsx'
+import { CartProvider } from './CartContent.jsx'
+import Checkout from './Checkout.jsx'
+import Clearance from './Clearance.jsx'
+import DailyDeals from './DailyDeals.jsx'
 import Headphones from './Headphones.jsx'
-import Keyboards from './Keyboards.jsx' 
+import Home from './Home.jsx'
+import Item from './Item.jsx'
+import Keyboards from './Keyboards.jsx'
 import Laptops from './Laptops.jsx'
 import Mice from './Mice.jsx'
 import Monitors from './Monitors.jsx'
+import Review from './review.jsx'
 import TVs from './TVs.jsx'
-import Breadcrumbs from './Breadcrumbs.jsx'
-import DailyDeals from './DailyDeals.jsx'
-import Clearance from './Clearance.jsx'
-import Cart from './Cart.jsx'
 
 function App() {
   const [showProductsDropdown, setShowProductsDropdown] = useState(false)
@@ -22,7 +27,9 @@ function App() {
 
   return (
     <Router>
-      <div className="app-container">
+      <BreadcrumbProvider>
+      <CartProvider>
+        <div className="app-container">
         <div className="content-container">
           <nav className="horizontal-nav">
             <Link to="/" className="nav-button">
@@ -82,10 +89,16 @@ function App() {
               <Route path="/DailyDeals" element={<DailyDeals />} />
               <Route path="/clearance" element={<Clearance />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/item/:id" element={<Item />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/review" element={<Review />} />
+
             </Routes>
           </main>
         </div>
       </div>
+      </CartProvider>
+      </BreadcrumbProvider>
     </Router>
   )
 }

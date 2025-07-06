@@ -35,10 +35,11 @@
   width: 250px;
   border: 2px solid #ACD7EC;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1rem 1rem 3rem 1rem; /* Added 3rem bottom padding for banner space */
   background-color: #145C9E;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  position: relative;
 }
 
 .product-card:hover {
@@ -57,6 +58,26 @@
   color: #D6EDFF;
 }
 
+.product-price-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.product-price-original {
+  font-weight: bold;
+  color: #D6EDFF;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.product-price-discounted {
+  font-weight: bold;
+  color: #e74c3c;
+  font-size: 1.1rem;
+}
+
 .product-discount {
   background-color: #4C9F70;
   color: white;
@@ -64,6 +85,21 @@
   border-radius: 4px;
   font-size: 0.8rem;
   margin-left: 8px;
+}
+
+.product-discount-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #e74c3c;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 .products-grid{
     display: flex;

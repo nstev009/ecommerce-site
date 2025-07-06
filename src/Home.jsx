@@ -1,12 +1,14 @@
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import all_products from './assets/products.js'
+import BreadcrumbTracker from './BreadcrumbTracker.jsx'
 import './Home.css'
 import './index.css'
-import all_products from './assets/products.js'
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 function Home() {
   const [trendingProducts, setTrendingProducts] = useState([])
   const uniqueCategories = [...new Set(all_products.map(product => product.category))];
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getRandomProducts = () => {
@@ -15,22 +17,45 @@ function Home() {
     }
     
     setTrendingProducts(getRandomProducts())
-  }, []) 
+  }, [])
+
+  const handleProductClick = (productId) => {
+    if (productId) {
+      navigate(`/item/${productId}`)
+    } else {
+      console.error('Product ID is undefined')
+    }
+  }
 
   return (
-    <div className='home-container'>
+    <BreadcrumbTracker label="Home">
+      <div className='home-container'>
       <h1 className='home-title'>Welcome to Atlas Electronics</h1>
       <p className='home-description'>Here at Atlas, we are dedicated to bringing you the best for the cheapest possible!</p>
       <div className='trending-container'>
         <h2 className='trending-title'>Trending Today</h2>
         <div className='trending-products'>
           {trendingProducts.map(product => (
-            <div key={product.id} className='product-card'>
+            <div 
+              key={product.id} 
+              className='product-card' 
+              onClick={() => handleProductClick(product.id)}
+              style={{ cursor: 'pointer' }}
+              >
               <img src={product.image} alt={product.name} className='product-image' />
               <h3>{product.name}</h3>
-              <p className='product-price'>${product.price.toFixed(2)}</p>
+              <div className='product-price-container'>
+                {product.discount > 0 ? (
+                  <>
+                    <span className='product-price-original'>${product.price.toFixed(2)}</span>
+                    <span className='product-price-discounted'>${(product.price * (1 - product.discount / 100)).toFixed(2)}</span>
+                  </>
+                ) : (
+                  <span className='product-price'>${product.price.toFixed(2)}</span>
+                )}
+              </div>
               {product.discount > 0 && (
-                <span className='product-discount'>{product.discount}% OFF</span>
+                <div className='product-discount-banner'>{product.discount}% OFF</div>
               )}
             </div>
           ))}
@@ -54,6 +79,8 @@ function Home() {
       </div>
     </div>
   </div>
+    </BreadcrumbTracker>
+    
 )
 }
 

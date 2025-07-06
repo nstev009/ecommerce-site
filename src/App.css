@@ -165,10 +165,12 @@
   min-width: 180px;
   z-index: 1000;
   overflow: hidden;
+  z-index: 9999999;
 }
 
 
 .dropdown-item {
+  z-index: 99999;
   display: block;
   padding: 10px 15px;
   text-decoration: none;

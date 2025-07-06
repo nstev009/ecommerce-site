@@ -1,0 +1,247 @@
+.review-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #aec5eb;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-container {
+  background-color: #145C9E;
+  border: 2px solid #ACD7EC;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+}
+
+.review-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.review-header h2 {
+  color: #aec5eb;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.review-header p {
+  color: #D6EDFF;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Rating Section */
+.rating-section {
+  text-align: center;
+}
+
+.rating-section h3 {
+  color: #aec5eb;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.star {
+  font-size: 3rem;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.star:hover {
+  color: #FFD700;
+  transform: scale(1.1);
+}
+
+.star.filled {
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.rating-text {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-label {
+  color: #FFD700;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Comment Section */
+.comment-section h3 {
+  color: #aec5eb;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.review-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #ACD7EC;
+  border-radius: 8px;
+  background-color: #005b9a;
+  color: #D6EDFF;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+  box-sizing: border-box;
+}
+
+.review-textarea:focus {
+  outline: none;
+  border-color: #D6EDFF;
+  background-color: #004080;
+  box-shadow: 0 0 0 2px rgba(214, 237, 255, 0.2);
+}
+
+.review-textarea::placeholder {
+  color: #999;
+}
+
+.character-count {
+  text-align: right;
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Submit Section */
+.submit-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.submit-review-btn {
+  background-color: #4C9F70;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.submit-review-btn:hover:not(:disabled) {
+  background-color: #3d7c59;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 159, 112, 0.3);
+}
+
+.submit-review-btn:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+.skip-review-btn {
+  background-color: transparent;
+  color: #ACD7EC;
+  border: 2px solid #ACD7EC;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.skip-review-btn:hover:not(:disabled) {
+  background-color: #ACD7EC;
+  color: #145C9E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(172, 215, 236, 0.3);
+}
+
+.skip-review-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .review-page {
+    padding: 1rem;
+  }
+  
+  .review-container {
+    padding: 2rem;
+  }
+  
+  .review-header h2 {
+    font-size: 2rem;
+  }
+  
+  .star {
+    font-size: 2.5rem;
+  }
+  
+  .submit-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .submit-review-btn,
+  .skip-review-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-container {
+    padding: 1.5rem;
+  }
+  
+  .review-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .star {
+    font-size: 2rem;
+    gap: 0.25rem;
+  }
+  
+  .star-rating {
+    gap: 0.25rem;
+  }
+}
