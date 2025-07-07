@@ -4,6 +4,7 @@ import all_products from '../assets/products.js'
 import { useBreadcrumb } from '../context/BreadcrumbContext.jsx'
 import { useCart } from '../context/CartContent.jsx'
 import '../styles/Item.css'
+import Toast from '../context/Toast.jsx'
 
 function Item() {
   const { id } = useParams()
@@ -12,6 +13,7 @@ function Item() {
   const { addToCart } = useCart()
   const [product, setProduct] = useState(null)
   const [quantity, setQuantity] = useState(1)
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     const foundProduct = all_products.find(item => item.id === parseInt(id))
@@ -50,8 +52,10 @@ function Item() {
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
-    console.log(`Added ${quantity} of ${product.name} to cart`)
-  }
+    setShowToast(true);
+    // dismiss after 4 seconds:
+    setTimeout(() => setShowToast(false), 4000);
+};
 
   const handleQuantityChange = (e) => {
     setQuantity(Math.max(1, parseInt(e.target.value)))
@@ -111,6 +115,7 @@ function Item() {
           >
             Add to Cart
           </button>
+          <Toast show={showToast} onClose={() => setShowToast(false)} />
         </div>
       </div>
     </div>
