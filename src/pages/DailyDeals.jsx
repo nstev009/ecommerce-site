@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import all_products from './assets/products.js'
-import BreadcrumbTracker from './BreadcrumbTracker.jsx'
-import './Home.css'
+import all_products from '../assets/products.js'
+import BreadcrumbTracker from '../components/BreadcrumbTracker.jsx'
+import '../styles/Home.css'
 
-function Headphones() {
-  const [products, setProducts] = useState([])
+function DailyDeals() {
+  const [deals, setDeals] = useState([])
   const navigate = useNavigate()
-  
+
   useEffect(() => {
-    // Filter products by category
-    const headphonesProducts = all_products.filter(
-      product => product.category === "Headphones"
-    )
-    setProducts(headphonesProducts)
+    // Filter products that are on sale (discount > 0)
+    const saleProducts = all_products.filter(product => product.discount > 0)
+    // Make a copy, shuffle, and pick 4 random sale products
+    const shuffled = [...saleProducts].sort(() => 0.5 - Math.random())
+    setDeals(shuffled.slice(0, 4))
   }, [])
 
   const handleProductClick = (productId) => {
@@ -23,13 +23,13 @@ function Headphones() {
       console.error('Product ID is undefined')
     }
   }
-  
+
   return (
-    <BreadcrumbTracker label="Headphones">
+    <BreadcrumbTracker label="Daily Deals">
       <div className="category-page">
-        <h1>Headphones</h1>
+        <h1>Daily Deals</h1>
         <div className="products-grid">
-          {products.map(product => (
+          {deals.map(product => (
             <div 
               key={product.id} 
               className="product-card" 
@@ -59,4 +59,4 @@ function Headphones() {
   )
 }
 
-export default Headphones
+export default DailyDeals

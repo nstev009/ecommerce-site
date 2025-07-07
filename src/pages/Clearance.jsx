@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import all_products from './assets/products.js'
-import BreadcrumbTracker from './BreadcrumbTracker.jsx'
-import './Home.css'
+import all_products from '../assets/products.js'
+import BreadcrumbTracker from '../components/BreadcrumbTracker.jsx'
+import '../styles/Home.css'
 
-function Laptops() {
-  const [products, setProducts] = useState([])
+function Clearance() {
+  const [clearance, setClearance] = useState([])
   const navigate = useNavigate()
-  
+
   useEffect(() => {
-    // Filter products by category
-    const laptopsProducts = all_products.filter(
-      product => product.category === "Laptops"
-    )
-    setProducts(laptopsProducts)
+    // Filter products that are on sale (discount > 0)
+    const saleProducts = all_products.filter(product => product.discount > 0)
+    // Sort by discount descending and pick top 4
+    const topDiscounts = saleProducts
+      .sort((a, b) => b.discount - a.discount)
+      .slice(0, 4)
+    setClearance(topDiscounts)
   }, [])
 
   const handleProductClick = (productId) => {
@@ -23,13 +25,13 @@ function Laptops() {
       console.error('Product ID is undefined')
     }
   }
-  
+
   return (
-    <BreadcrumbTracker label="Laptops">
+    <BreadcrumbTracker label="Clearance">
       <div className="category-page">
-        <h1>Laptops</h1>
+        <h1>Clearance</h1>
         <div className="products-grid">
-          {products.map(product => (
+          {clearance.map(product => (
             <div 
               key={product.id} 
               className="product-card" 
@@ -59,4 +61,4 @@ function Laptops() {
   )
 }
 
-export default Laptops
+export default Clearance

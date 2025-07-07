@@ -4,22 +4,23 @@ import './App.css'
 import cartIcon from './assets/cartIcon.png'
 import DropdownIcon from './assets/dropdownIcon.png'
 import logo from './assets/logo.png'
-import { BreadcrumbProvider } from './BreadcrumbContext.jsx'
-import Breadcrumbs from './Breadcrumbs.jsx'
-import Cart from './Cart.jsx'
-import { CartProvider } from './CartContent.jsx'
-import Checkout from './Checkout.jsx'
-import Clearance from './Clearance.jsx'
-import DailyDeals from './DailyDeals.jsx'
-import Headphones from './Headphones.jsx'
-import Home from './Home.jsx'
-import Item from './Item.jsx'
-import Keyboards from './Keyboards.jsx'
-import Laptops from './Laptops.jsx'
-import Mice from './Mice.jsx'
-import Monitors from './Monitors.jsx'
-import Review from './review.jsx'
-import TVs from './TVs.jsx'
+import { Breadcrumbs } from './components'
+import { BreadcrumbProvider, CartProvider } from './context'
+import {
+  Cart,
+  Checkout,
+  Clearance,
+  DailyDeals,
+  Headphones,
+  Home,
+  Item,
+  Keyboards,
+  Laptops,
+  Mice,
+  Monitors,
+  Review,
+  TVs
+} from './pages'
 
 function App() {
   const [showProductsDropdown, setShowProductsDropdown] = useState(false)
@@ -86,7 +87,7 @@ function App() {
               <Route path="/Mice" element={<Mice />} /> 
               <Route path="/Monitors" element={<Monitors />} />
               <Route path="/TVs" element={<TVs />} />
-              <Route path="/DailyDeals" element={<DailyDeals />} />
+              <Route path="/dailydeals" element={<DailyDeals />} />
               <Route path="/clearance" element={<Clearance />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/item/:id" element={<Item />} />

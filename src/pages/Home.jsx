@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import all_products from './assets/products.js'
-import BreadcrumbTracker from './BreadcrumbTracker.jsx'
-import './Home.css'
-import './index.css'
+import all_products from '../assets/products.js'
+import BreadcrumbTracker from '../components/BreadcrumbTracker.jsx'
+import '../index.css'
+import '../styles/Home.css'
 
 function Home() {
   const [trendingProducts, setTrendingProducts] = useState([])

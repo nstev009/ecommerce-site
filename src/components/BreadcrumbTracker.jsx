@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useBreadcrumb } from './BreadcrumbContext.jsx'
+import { useBreadcrumb } from '../context/BreadcrumbContext.jsx'
 
 function BreadcrumbTracker({ children, label }) {
   const { updateBreadcrumbHistory } = useBreadcrumb()

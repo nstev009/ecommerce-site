@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
-import all_products from './assets/products.js'
-import { useBreadcrumb } from './BreadcrumbContext.jsx'
-import { useCart } from './CartContent.jsx'
-import './Item.css'
+import all_products from '../assets/products.js'
+import { useBreadcrumb } from '../context/BreadcrumbContext.jsx'
+import { useCart } from '../context/CartContent.jsx'
+import '../styles/Item.css'
 
 function Item() {
   const { id } = useParams()

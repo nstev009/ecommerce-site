@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
-import all_products from './assets/products.js'
-import { useBreadcrumb } from './BreadcrumbContext.jsx'
-import './Breadcrumbs.css'
+import all_products from '../assets/products.js'
+import { useBreadcrumb } from '../context/BreadcrumbContext.jsx'
+import '../styles/Breadcrumbs.css'
 
 function capitalize(word) {
   return word.charAt(0).toUpperCase() + word.slice(1)

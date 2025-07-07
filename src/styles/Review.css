@@ -197,51 +197,276 @@
   cursor: not-allowed;
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .review-page {
+    padding: 3rem;
+  }
+  
+  .review-container {
+    max-width: 700px;
+    padding: 4rem;
+  }
+  
+  .review-header h2 {
+    font-size: 3rem;
+  }
+  
+  .star {
+    font-size: 3.5rem;
+  }
+}
+
+/* Desktop to Large Tablet */
+@media (max-width: 1024px) {
+  .review-page {
+    padding: 2rem;
+  }
+  
+  .review-container {
+    padding: 2.5rem;
+    max-width: 550px;
+  }
+  
+  .review-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .star {
+    font-size: 2.8rem;
+  }
+}
+
+/* Tablet */
 @media (max-width: 768px) {
   .review-page {
     padding: 1rem;
+    min-height: 70vh;
   }
   
   .review-container {
     padding: 2rem;
   }
   
+  .review-header {
+    margin-bottom: 2rem;
+  }
+  
   .review-header h2 {
     font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .review-header p {
+    font-size: 1rem;
+  }
+  
+  .review-form {
+    gap: 2rem;
+  }
+  
+  .rating-section h3,
+  .comment-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
   
   .star {
     font-size: 2.5rem;
+    padding: 0.2rem;
+  }
+  
+  .star-rating {
+    gap: 0.3rem;
+  }
+  
+  .rating-label {
+    font-size: 1.1rem;
+  }
+  
+  .review-textarea {
+    min-height: 100px;
+    padding: 0.8rem;
+    font-size: 0.95rem;
   }
   
   .submit-section {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
   
   .submit-review-btn,
   .skip-review-btn {
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
   }
 }
 
+/* Small Tablet and Large Mobile */
+@media (max-width: 640px) {
+  .review-container {
+    padding: 1.8rem;
+  }
+  
+  .review-form {
+    gap: 1.8rem;
+  }
+  
+  .star {
+    font-size: 2.2rem;
+  }
+  
+  .star-rating {
+    gap: 0.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .rating-text {
+    height: 1.8rem;
+  }
+  
+  .rating-label {
+    font-size: 1rem;
+  }
+  
+  .review-textarea {
+    min-height: 90px;
+    font-size: 0.9rem;
+  }
+  
+  .character-count {
+    font-size: 0.8rem;
+  }
+  
+  .submit-review-btn,
+  .skip-review-btn {
+    max-width: 250px;
+    min-width: 140px;
+  }
+}
+
+/* Mobile */
 @media (max-width: 480px) {
+  .review-page {
+    padding: 0.5rem;
+    min-height: 60vh;
+  }
+  
   .review-container {
     padding: 1.5rem;
   }
   
+  .review-header {
+    margin-bottom: 1.5rem;
+  }
+  
   .review-header h2 {
     font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .review-header p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  .review-form {
+    gap: 1.5rem;
+  }
+  
+  .rating-section h3,
+  .comment-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
   }
   
   .star {
     font-size: 2rem;
-    gap: 0.25rem;
+    padding: 0.15rem;
   }
   
   .star-rating {
-    gap: 0.25rem;
+    gap: 0.15rem;
+  }
+  
+  .rating-text {
+    height: 1.5rem;
+  }
+  
+  .rating-label {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .review-textarea {
+    min-height: 80px;
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  
+  .character-count {
+    font-size: 0.75rem;
+  }
+  
+  .submit-review-btn,
+  .skip-review-btn {
+    width: 100%;
+    max-width: 220px;
+    min-width: 120px;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 320px) {
+  .review-container {
+    padding: 1rem;
+  }
+  
+  .review-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .review-header p {
+    font-size: 0.9rem;
+  }
+  
+  .rating-section h3,
+  .comment-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .star {
+    font-size: 1.8rem;
+    padding: 0.1rem;
+  }
+  
+  .star-rating {
+    gap: 0.1rem;
+  }
+  
+  .rating-label {
+    font-size: 0.8rem;
+  }
+  
+  .review-textarea {
+    min-height: 70px;
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .submit-review-btn,
+  .skip-review-btn {
+    max-width: 180px;
+    min-width: 100px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
   }
 }

@@ -1,0 +1,105 @@
+
+
+.breadcrumbs {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  z-index: 50;
+  background: transparent;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  font-size: 0.9rem;
+  pointer-events: auto;
+}
+
+.breadcrumb-link {
+  color: #ACD7EC;
+  cursor: pointer;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.breadcrumb-link:hover {
+  color: #D6EDFF;
+}
+
+.breadcrumb-current {
+  color: #ACD7EC;
+  pointer-events: none;
+}
+
+.breadcrumb-separator {
+  color: #ACD7EC;
+  pointer-events: none;
+}
+
+/* Enhanced Responsive Design for Breadcrumbs */
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .breadcrumbs {
+    top: 1.5rem;
+    left: 3rem;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+  }
+}
+
+/* Desktop to Large Tablet */
+@media (max-width: 1024px) {
+  .breadcrumbs {
+    top: 1rem;
+    left: 2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .breadcrumbs {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: rgba(20, 92, 158, 0.9);
+    border-radius: 6px;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    width: fit-content;
+    backdrop-filter: blur(5px);
+  }
+}
+
+/* Small Tablet and Large Mobile */
+@media (max-width: 640px) {
+  .breadcrumbs {
+    margin: 0 0 0.8rem 0;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .breadcrumbs {
+    margin: 0 0 0.5rem 0;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .breadcrumb-link,
+  .breadcrumb-current,
+  .breadcrumb-separator {
+    display: inline-block;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 320px) {
+  .breadcrumbs {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+}

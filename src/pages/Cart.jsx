@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import BreadcrumbTracker from './BreadcrumbTracker.jsx';
-import './Cart.css';
-import { useCart } from './CartContent.jsx';
+import BreadcrumbTracker from '../components/BreadcrumbTracker.jsx';
+import { useCart } from '../context/CartContent.jsx';
+import '../styles/Cart.css';
 
 function Cart() {
   const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();

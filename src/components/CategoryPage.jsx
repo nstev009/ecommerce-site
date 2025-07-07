@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import all_products from './assets/products.js'
-import BreadcrumbTracker from './BreadcrumbTracker.jsx'
-import './Home.css'
+import all_products from '../assets/products.js'
+import BreadcrumbTracker from '../components/BreadcrumbTracker.jsx'
+import '../styles/Home.css'
 
-function Keyboards() {
+function CategoryPage({ category, displayName }) {
   const [products, setProducts] = useState([])
   const navigate = useNavigate()
-  
+
   useEffect(() => {
-    // Filter products by category
-    const KeyboardsProducts = all_products.filter(
-      product => product.category === "Keyboards"
+    const categoryProducts = all_products.filter(
+      product => product.category === category
     )
-    setProducts(KeyboardsProducts)
-  }, [])
+    setProducts(categoryProducts)
+  }, [category])
 
   const handleProductClick = (productId) => {
     if (productId) {
@@ -23,11 +22,11 @@ function Keyboards() {
       console.error('Product ID is undefined')
     }
   }
-  
+
   return (
-    <BreadcrumbTracker label="Keyboards">
+    <BreadcrumbTracker label={displayName || category}>
       <div className="category-page">
-        <h1>Keyboards</h1>
+        <h1>{displayName || category}</h1>
         <div className="products-grid">
           {products.map(product => (
             <div 
@@ -42,14 +41,18 @@ function Keyboards() {
                 {product.discount > 0 ? (
                   <>
                     <span className='product-price-original'>${product.price.toFixed(2)}</span>
-                    <span className='product-price-discounted'>${(product.price * (1 - product.discount / 100)).toFixed(2)}</span>
+                    <span className='product-price-discounted'>
+                      ${(product.price * (1 - product.discount / 100)).toFixed(2)}
+                    </span>
                   </>
                 ) : (
                   <span className='product-price'>${product.price.toFixed(2)}</span>
                 )}
               </div>
               {product.discount > 0 && (
-                <div className='product-discount-banner'>{product.discount}% OFF</div>
+                <div className="product-discount-banner">
+                  {product.discount}% OFF
+                </div>
               )}
             </div>
           ))}
@@ -59,4 +62,4 @@ function Keyboards() {
   )
 }
 
-export default Keyboards
+export default CategoryPage
