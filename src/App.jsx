@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import './App.css'
 import cartIcon from './assets/cartIcon.png'
-import DropdownIcon from './assets/dropdownIcon.png'
+import DropdownIcon from './assets/DropdownIcon.png'
 import logo from './assets/logo.png'
 import { Breadcrumbs } from './components'
 import { BreadcrumbProvider, CartProvider } from './context'
@@ -87,8 +87,8 @@ function App() {
               <Route path="/Mice" element={<Mice />} /> 
               <Route path="/Monitors" element={<Monitors />} />
               <Route path="/TVs" element={<TVs />} />
-              <Route path="/dailydeals" element={<DailyDeals />} />
-              <Route path="/clearance" element={<Clearance />} />
+              <Route path="/DailyDeals" element={<DailyDeals />} />
+              <Route path="/Clearance" element={<Clearance />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/item/:id" element={<Item />} />
               <Route path="/checkout" element={<Checkout />} />

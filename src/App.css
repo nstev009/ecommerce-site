@@ -77,11 +77,6 @@
   gap: 0.5rem; /* Add spacing between text and icon */
 }
 
-.nav-button:hover,
-.dropdown-trigger:hover {
-  border-bottom: 2px solid black;
-}
-
 .nav-icon {
   margin-top: 0;
   padding: 0;
